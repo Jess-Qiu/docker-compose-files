@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:latest
+    container_name: dev_database_pgsql
+    restart: always
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: Qiu@2025
+      POSTGRES_DB: devdb # 新增：指定默认数据库
+    ports:
+      - "6400:5432"
+    volumes:
+      - pgsql_data:/var/lib/postgresql/data
+    networks:
+      - pgsql_net # 新增：指定网络
+
+volumes:
+  pgsql_data:
+    # 新增：定义数据卷
+
+networks:
+  pgsql_net: # 新增：定义网络
