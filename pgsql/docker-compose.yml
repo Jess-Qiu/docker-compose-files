@@ -1,22 +1,19 @@
 version: '3.8'
 services:
   postgres:
-    image: postgres:latest
-    container_name: dev_database_pgsql
+    image: ${IMAGE_NAME}
+    container_name: ${CONTAINER_NAME}
     restart: always
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: Qiu@2025
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+      - POSTGRES_DB
     ports:
       - "6400:5432"
     volumes:
-      - pgsql_data:/var/lib/postgresql/data
+      - ${CONTAINER_VOLUME}:/var/lib/postgresql/data
     networks:
       - pgsql_net # 新增：指定网络
-
-volumes:
-  pgsql_data:
-    # 新增：定义数据卷
 
 networks:
   pgsql_net: # 新增：定义网络
