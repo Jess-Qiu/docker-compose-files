@@ -5,9 +5,8 @@ services:
     container_name: dev_database_pgsql
     restart: always
     environment:
-      POSTGRES_USER: root
+      POSTGRES_USER: postgres
       POSTGRES_PASSWORD: Qiu@2025
-      POSTGRES_DB: devdb # 新增：指定默认数据库
     ports:
       - "6400:5432"
     volumes:
